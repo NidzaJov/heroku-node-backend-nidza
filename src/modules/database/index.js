@@ -2,7 +2,7 @@ const config = require('../../config');
 const { MongoClient } = require('mongodb');
 const { usersCollection } = require('../../constants');
 
-const connectionString = `mongodb://${config.db.username}:${config.db.password}@localhost/${config.db.dbname}`;
+const connectionString = `mongodb://${config.db.username}:${config.db.password}@192.168.0.12/${config.db.dbname}`;
 
 class Database {
     async connect() {
