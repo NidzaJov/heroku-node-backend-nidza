@@ -1,7 +1,7 @@
 const { DB } = require('../../database');
 const { usersCollection } = require('../../../constants');
 const { validateKeysExist } = require('../../helpers');
-const { ObjectID } = require('mongoDB');
+const { ObjectID } = require('mongodb');
 
 const userRequiredKeys = ['firstName', 'lastName', 'email', 'password'];
 
