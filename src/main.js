@@ -19,7 +19,7 @@ const cookieParser = require('cookie-parser');
     app.use(router.path, router.router);
 
     console.info('Starting the app...');
-    var port = process.env.PORT || config.app.port
+    var port = process.env.PORT || 5000
     app.listen(port, () => {
         console.info(`Server is listening on port ${port}...`)
     })
