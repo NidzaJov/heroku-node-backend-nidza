@@ -54,6 +54,15 @@ authRouter.get('/logout', async function(req, res) {
     res.sendStatus(200);
 })
 
+authRouter.get('/', async function(req, res) {
+    try {
+        res.sendStatus(200).json('Hello there')
+    } catch (e) {
+        console.info('Contact exception', e);
+        res.sendStatus(500);
+    }
+})
+
 module.exports = {
     path: '/',
     router: authRouter,

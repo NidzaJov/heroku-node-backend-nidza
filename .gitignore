@@ -1,7 +1,7 @@
-node_modules
-node_modules/*
-*/node_modules
-# Logs
+#node_modules
+#node_modules/*
+#*/node_modules
+# Logsgit
 logs
 *.log
 npm-debug.log*

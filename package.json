@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "serve": "nodemon ./src/main.js --config nodemon-config.json"
+    "serve": "nodemon ./src/main.js --config nodemon-config.json",
+    "start": "node src/main.js"
   },
   "keywords": [
     "heroku"
