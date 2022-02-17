@@ -14,6 +14,15 @@ const cookieParser = require('cookie-parser');
     const router = require('./router');
     const app = express();
     console.info('Registering the routes...');
+
+    app.get('/', function(req, res) {
+        try {
+            res.sendStatus(200).json('Hello there')
+        } catch (e) {
+            console.info('Contact exception', e);
+            res.sendStatus(500);
+        }
+    })
     
     app.use(cookieParser(config.auth.secret));
     app.use(router.path, router.router);
