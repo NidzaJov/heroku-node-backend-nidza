@@ -54,7 +54,7 @@ authRouter.get('/logout', async function(req, res) {
     res.sendStatus(200);
 })
 
-authRouter.get('/', async function(req, res) {
+authRouter.get('/', function(req, res) {
     try {
         res.sendStatus(200).json('Hello there')
     } catch (e) {
