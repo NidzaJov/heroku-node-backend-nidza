@@ -2,8 +2,10 @@ const config = require('../../config');
 const { MongoClient } = require('mongodb');
 const { usersCollection } = require('../../constants');
 
-const connectionString = /*`mongodb://${config.db.username}:${config.db.password}@192.168.0.12/${config.db.dbname}`*/
-'mongodb+srv://sedcuser:pLiuOxcBD5J9vkyb@cluster0.jkazo.mongodb.net/main?retryWrites=true&w=majority';
+let connectionString; /*`mongodb://${config.db.username}:${config.db.password}@192.168.0.12/${config.db.dbname}`*/
+if (process.env.NODE_ENV == 'production') {
+    connectionString = process.env.dbConnectionString;
+} else connectionString = process.env.MongoDbAtlasConnectionString
 
 class Database {
     async connect() {
