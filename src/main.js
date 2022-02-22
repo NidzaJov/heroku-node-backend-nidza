@@ -17,6 +17,7 @@ const cookieParser = require('cookie-parser');
 
     app.get('/', function(req, res) {
         try {
+            res.json(process.env.NODE_ENV)
             res.sendStatus(200)
         } catch (e) {
             console.info('Contact exception', e);

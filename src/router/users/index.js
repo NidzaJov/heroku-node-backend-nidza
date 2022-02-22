@@ -8,7 +8,7 @@ usersRouter.use(authMiddleware);
 
 usersRouter.get('/:userId?', async function(req, res) {
     const  { userId } = req.params;
-    console.log(userId);
+    console.log('User id:',userId);
     if (userId) {
         const user = await usersService.getById(userId);
         res.json(user);

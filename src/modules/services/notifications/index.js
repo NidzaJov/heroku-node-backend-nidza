@@ -27,11 +27,11 @@ class NotificationsService {
     }
 
     async findAllByUserId(userId) {
-        console.info(userId);
+        console.info('Notifications for userId',userId);
         const notifications = await NotificationsService.collection.find({
             receiver: new ObjectID(userId)
         }).toArray();
-        console.info(notifications);
+        console.info('Notifications',notifications);
         return notifications;
     }
 
