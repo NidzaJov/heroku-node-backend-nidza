@@ -38,10 +38,21 @@ authRouter.post('/login', async function(req, res) {
         if (!passwordMatch) res.sendStatus(401);
 
         const token = await AuthService.generateToken(user);
-        res.cookie(config.auth.authCookieName, token, {
-            httpOnly: true,
-            expires: new Date(Date.now() + config.auth.authCookieAgeInSeconds * 1000),
-        });
+        if (process.env.NODE_ENV === 'production') {
+            res.cookie(config.auth.authCookieName, token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + config.auth.authCookieAgeInSeconds * 1000),
+                secure: true,
+                sameSite: 'none',
+                domain: 'herokuapp.com'
+            });
+        } else {
+            res.cookie(config.auth.authCookieName, token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + config.auth.authCookieAgeInSeconds * 1000),
+            });
+        }
+        
         res.sendStatus(200);
     } catch (e) {
         console.info('Login error', e);
