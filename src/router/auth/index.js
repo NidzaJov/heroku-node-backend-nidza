@@ -43,8 +43,8 @@ authRouter.post('/login', async function(req, res) {
                 httpOnly: true,
                 expires: new Date(Date.now() + config.auth.authCookieAgeInSeconds * 1000),
                 secure: true,
-                sameSite: 'none',
-                domain: 'herokuapp.com'
+                //sameSite: 'none',
+                //domain: 'herokuapp.com'
             });
         } else {
             res.cookie(config.auth.authCookieName, token, {
